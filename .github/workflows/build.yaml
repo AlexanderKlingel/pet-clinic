@@ -26,3 +26,5 @@ jobs:
           # hier ist Platz für maven package und docker build
            mvn package
            docker build --tag lexkl/pet-clinic:latest -f Dockerfile .
+           echo ${{ secrets.password }} | docker login -u 'lexkl' --password-stdin
+           docker push lexkl/pet-clinic:latest
